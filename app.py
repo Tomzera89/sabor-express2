@@ -1,3 +1,5 @@
+import os
+
 print ("""
 ░██████╗░█████╗░██████╗░░█████╗░██████╗░  ███████╗██╗░░██╗██████╗░██████╗░███████╗░██████╗░██████╗
 ██╔════╝██╔══██╗██╔══██╗██╔══██╗██╔══██╗  ██╔════╝╚██╗██╔╝██╔══██╗██╔══██╗██╔════╝██╔════╝██╔════╝
@@ -13,6 +15,13 @@ print('4. Sair\n')
 
 opcao_escolhida = int(input('Digite a opção desejada: '))
 
+def finalizar_app():
+    os.system('cls')
+    print('\nFinalizando o app...')
+    
+
+
+
 if opcao_escolhida == 1:
     print('\nCadastrando novo restaurante...')
 elif opcao_escolhida == 2:
@@ -20,4 +29,4 @@ elif opcao_escolhida == 2:
 elif opcao_escolhida == 3:
     print('\nAtivando restaurante...')
 else:
-    print('\nSaindo do sistema...')
+    finalizar_app()
