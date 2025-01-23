@@ -18,33 +18,34 @@ def menu():
     print('4. Sair\n')
 
 def finalizar_app():
-    os.system('cls')
-    print('\nFinalizando o app.\n')
+    exibir_subtitulo('Finalizando o app.\n')
+
+def volta_menu():
+    input('\nPressione ENTER para voltar ao menu principal. ')
+    main() ## Reinicia o programa
 
 def opcao_invalida():
     print('\nOpção inválida.\n')
-    input('Pressione ENTER para voltar ao menu principal.')
-    main() ## Reinicia o programa
+    volta_menu()
+
+def exibir_subtitulo(texto):
+    os.system('cls')
+    print(f'\n{texto}\n')
 
 def cadastrar_restaurante():
-    os.system('cls')
-    print('Cadastrando novo restaurante...')
+    exibir_subtitulo('Cadastrar novo restaurante')
     nome_restaurante = input('Nome do restaurante: ')
     restaurantes.append(nome_restaurante) ## Adiciona o nome do restaurante à lista
     print(f'Restaurante {nome_restaurante} cadastrado com sucesso!\n')
-    input('\nPressione ENTER para voltar ao menu principal.')
-    main()
+    volta_menu()
 
 def listar_restaurantes():
-    os.system('cls')
-    print('Listando restaurantes:\n')
+    exibir_subtitulo('Listando restaurantes:')
     for restaurante in restaurantes:
         print(f'.{restaurante}')
         
-    input('\nPressione ENTER para voltar ao menu principal.')
-    main()
+    volta_menu()
         
-
 
 def escolher_opcao():
     try: 
@@ -71,5 +72,3 @@ def main():
 if __name__ == '__main__':
     main()
 
-
-## parei no tópico 'Lista, laços e exceções,aula 07'
