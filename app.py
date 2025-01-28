@@ -17,11 +17,11 @@ def exibir_nome_programa():
 def menu():
     print('1. Cadastrar restaurante')
     print('2. Listar restaurante')
-    print('3. Ativar restaurante')
+    print('3. Ativar ou desativar restaurante')
     print('4. Sair\n')
 
 def finalizar_app():
-    exibir_subtitulo('Finalizando o app.\n')
+    exibir_subtitulo('Finalizando o app.')
 
 def volta_menu():
     input('\nPressione ENTER para voltar ao menu principal. ')
@@ -33,7 +33,11 @@ def opcao_invalida():
 
 def exibir_subtitulo(texto):
     os.system('cls')
-    print(f'\n{texto}\n')
+    linha = '#' * (len(texto)) # Cria uma linha com o mesmo número de caracteres do texto
+    print(linha)
+    print(f'{texto}')
+    print(linha)
+    print()
 
 def cadastrar_restaurante():
     exibir_subtitulo('Cadastrar novo restaurante')
@@ -46,11 +50,14 @@ def cadastrar_restaurante():
 
 def listar_restaurantes():
     exibir_subtitulo('Listando restaurantes:')
+
+    print(f'|{"Nome".ljust(15)}|{"Categoria".ljust(15)}|{"Status"}')
+    print(f'+{"-" * 15}+{"-" * 15}+{"-" * 10}\n')
     for restaurante in restaurantes:
         nome_restaurante = restaurante['nome']
         categoria_restaurante = restaurante['categoria']
         ativo_restaurante = 'Ativado' if restaurante['ativo'] else 'Desativado'
-        print(f' - {nome_restaurante} - {categoria_restaurante} - {ativo_restaurante} \n')
+        print(f'|{nome_restaurante.ljust(15)}|{categoria_restaurante.ljust(15)}|{ativo_restaurante}')
         
     volta_menu()
         
